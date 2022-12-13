@@ -33,10 +33,7 @@ AgriWeather is a Team project. This App was intended to be a single-page app, wh
 
 ## Description
 
-- This webapp was built to to provide both realtime and forecast weather informations. Users all over the world can view the weather informations by inputting the locations. With its responsive design, users can access the webapp via their laptops, desktops, mobile devices, etc without any display issues.
-
-
-- Google Cloud Services will be used to host the web app. Initially we thought of using Google Cloud Storage to host the Static Web App, but finally decided to go with GCP serverless computing service known as Cloud Run, since a lot of functionalities are to be implemented, in the backend.
+- This webapp was built to to provide both realtime and forecast weather informations for farmers to help plan their adequately. Farmers all over the world can view the weather informations by inputting their farm locations. With its responsive design, users can access the webapp via their laptops, desktops, mobile devices, etc without any display issues.
 
 - **Technology Used**: This webapp makes use of Python Flask. Flask is a light-weight Python web framework, this greatly influenced our decision in choosing it. Since we agreed that the app will be utilising a microservice architecture. This makes it possible for us to only included relevant functionalities tha we need. It is reassuringly secure and exceedingly scalable.
 
@@ -96,36 +93,22 @@ AgriWeather is a Team project. This App was intended to be a single-page app, wh
   3. Fetch for remote updates :      
   
 
-  4. Pull any recent changes from the main branch:  
-  
+  4. Install a vrtual environment package :        
 
-  5. Install a vrtual environment package :        
 
-  
-
-  6. Create a virtual environment : 
+  5. Create a virtual environment : 
 
   
 
-  7. Activate the virtual environment :   
+  6. Activate the virtual environment :   
 
   
 
-  8. Install dependencies :  
+  7. Install dependencies :  
+    pip install requirements.txt
 
- 
-
-  9. Make migrations:       
-
- 
-
-  10. Migrate all models :    
-
-  
-
-  11. Start Local Server:     
-
-  
+  8. Start Local Server: 
+    python app.py
 
 ## How to Contribute
 
