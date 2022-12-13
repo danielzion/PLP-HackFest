@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>AgriWeather - Index</title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+
+  <!-- Favicons -->
+  <link href="{{ url_for('static', filename='img/favicon.png') }}" rel="icon">
+  <link href="{{ url_for('static', filename='img/apple-touch-icon.png') }}" rel="apple-touch-icon">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Jost:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="{{ url_for('static', filename='vendor/bootstrap-icons/bootstrap-icons.css') }}" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/3.0.0-beta.6/aos.css') }}" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css') }}" rel="stylesheet">
+  <link href="https://cdn.bootcdn.net/ajax/libs/bootstrap-icons/1.10.1/font/bootstrap-icons.css') }}" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/boxicons/2.1.0/css/boxicons.min.css') }}" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/glightbox/dist/css/glightbox.min.css') }}" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/remixicon@2.2.0/fonts/remixicon.css') }}" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css') }}" rel="stylesheet">
+
+
+  <link href="{{ url_for('static', filename='vendor/aos/aos.css') }}" rel="stylesheet">
+  <link href="{{ url_for('static', filename='vendor/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
+  <link href="{{ url_for('static', filename='vendor/bootstrap-icons/bootstrap-icons.css') }}" rel="stylesheet">
+  <link href="{{ url_for('static', filename='vendor/boxicons/css/boxicons.min.css') }}" rel="stylesheet">
+  <link href="{{ url_for('static', filename='vendor/glightbox/css/glightbox.min.css') }}" rel="stylesheet">
+  <link href="{{ url_for('static', filename='vendor/remixicon/remixicon.css') }}" rel="stylesheet">
+  <link href="{{ url_for('static', filename='vendor/swiper/swiper-bundle.min.css') }}" rel="stylesheet">
+
+  
+  <!-- Template Main CSS File -->
+  <link href="{{ url_for('static', filename='css/style.css') }}" rel="stylesheet">
+  <link href="{{ url_for('static', filename='css/weather.css') }}" rel="stylesheet">
+  <link href="{{ url_for('static', filename='css/forecast.css') }}" rel="stylesheet">
+</head>
+
+<body>
+
+  <!-- ======= Header ======= -->
+  <header id="header" class="fixed-top header-inner-pages">
+    <div class="container d-flex align-items-center">
+
+      <h1 class="logo me-auto"><a href="{{ url_for('index') }}">AgriWeather</a></h1>
+      <nav id="navbar" class="navbar">
+        <ul>
+          <li><a class="nav-link scrollto active" href="{{ url_for('index') }}">Home</a></li>
+          <li><a class="nav-link scrollto" href="{{ url_for('weather') }}">Weather</a></li>
+          <li><a class="nav-link   scrollto" href="{{ url_for('news') }}">News</a></li>
+        </ul>
+        <i class="bi bi-list mobile-nav-toggle"></i>
+      </nav><!-- .navbar -->
+
+    </div>
+  </header><!-- End Header -->
+
+  <!-- ======= Hero Section ======= -->
+  <section id="hero" class="d-flex align-items-center">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6 d-flex flex-column justify-content-center pt-4 pt-lg-0 order-2 order-lg-1" data-aos="fade-up" data-aos-delay="200">
+              <h1>AgriWeather...</h1>
+              <h2>A Farmer's guide to Weather Info</h2>
+              <div class="d-flex justify-content-center justify-content-lg-start">
+                <a href="{{ url_for('index')}}" class="btn-get-started scrollto">Get Started</a>
+              </div>
+            </div>
+            <div class="col-lg-6 order-1 order-lg-2 hero-img" data-aos="zoom-in" data-aos-delay="200">
+              <img src="{{ url_for('static', filename='img/nasa.png') }}" class="img-fluid animated" alt="">
+            </div>
+          </div>
+        
+    </div>
+  </section>
+
+  <div class="container">
+                
+    <div class="container-fluid px-1 px-sm-3 py-5 mx-auto">
+        
+        <div class="row d-flex justify-content-center">
+            
+
+            <div class="row card0">
+
+                <div class="card1 col-lg-7 col-md-6">    
+                    <div class="text-center">
+
+                        <img class="image mt-5" src="{{ url_for('static', filename='img/baloon.webp') }}">
+
+                    </div>                
+
+
+                    <div class="row px-3 mt-3 mb-3">
+                      {% if data.country_code and data.coordinate and data.temp_cel and data.pressure and data.humidity %}
+
+                        <h1 class="large-font mr-3">{{data.temp_cel}}&#176;C</h1>
+
+                        <div class="d-flex flex-column mr-3">
+
+                            <h2 class="mt-3 mb-0">{{data.cityname.upper()}}</h2>
+
+                            <small>
+                                <time id="time" datetime="hh:mm">
+
+                                </time>
+                            </small>
+
+                        </div>
+
+                        <div class="d-flex flex-column text-center">
+                            <img class="desc_icon" src="/static/icons/{{ data.icon }}.png"></img>
+                            {{data.desc}}
+
+                        </div>
+                        
+
+                    </div>
+
+                </div>
+
+                <div class="card2 col-lg-5 col-md-6">
+
+                    <div class="px-3">
+                      <form method="POST">
+                        <div>
+                              <input name="city" placeholder="Enter City" type="text" />
+                              <button type="submit" class="btn btn-primary">Submit</button>
+                          </div>
+                              <span class="badge rounded-pill bg-danger">{{msg}}</span>
+                              
+                        
+                      </form>
+                                              
+                    </div>
+
+                    <div class="mr-5">
+
+                        <p>Other Weather Details</p>
+                          <div class="weather-info">
+
+                          <div class="row px-3">
+
+                              <p class="light-text">Pressure</p>
+
+                              <p class="ml-auto">{{data.pressure}}</p>
+
+                          </div>
+
+                          <div class="row px-3">
+
+                              <p class="light-text">Humidity</p>
+
+                              <p class="ml-auto">{{data.humidity}}%</p>
+
+                          </div>
+
+                          <div class="row px-3">
+
+                              <p class="light-text">Wind Speed</p>
+
+                              <p class="ml-auto">{{data.wind_speed}}km/h</p>
+
+                          </div>
+
+                          <div class="row px-3">
+
+                              <p class="light-text">Rain</p>
+
+                              <p class="ml-auto">0mm</p>
+
+                          </div>
+
+                          <div class="row px-3">
+
+                            <p class="light-text">Temperature Max</p>
+  
+                            <p class="ml-auto">{{data.temp_max_cel}}&#176;C</p>
+  
+                        </div>
+
+                          <div class="row px-3">
+
+                            <p class="light-text">Temperature Min</p>
+
+                            <p class="ml-auto">{{data.temp_min_cel}}&#176;C</p>
+
+                        </div>
+                        
+                        </div>
+                        {% endif %}
+                    </div>
+
+                </div>
+
+            </div>
+            
+        </div>            
+
+        </div>
+
+    </div>
+
+    </div>
+  
+    
+
+    </div>
+
+  <!-- ======= Footer ======= -->
+  <footer id="footer">
+
+
+    <div class="container footer-bottom clearfix">
+      <div class="copyright">
+        &copy; Copyright <strong><span>WaYG</span></strong>. All Rights Reserved
+      </div>
+      <div class="credits">
+        Designed by GADS Climate Team-6
+      </div>
+    </div>
+  </footer><!-- End Footer -->
+
+  <script src="https://www.gstatic.com/dialogflow-console/fast/messenger/bootstrap.js?v=1"></script>
+  <df-messenger
+    intent="WELCOME"
+    chat-title="Climabot"
+    agent-id="e01adc56-b191-40af-bfb2-9d4d6c7773c1"
+    language-code="en"
+    chat-icon="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSeQ1ZcLIXgC7QfV095MquOTNv2H-STfmdqWUeAO6zr_579c-w6BOGIQcKJDGMwgXT4FIE&usqp=CAU"
+    wait-open="true"
+    ></df-messenger>
+
+  <div id="preloader"></div>
+  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+  <script src="https://www.gstatic.com/dialogflow-console/fast/messenger/bootstrap.js?v=1"></script>
+  <df-messenger
+    intent="WELCOME"
+    chat-title="Climabot"
+    agent-id="e01adc56-b191-40af-bfb2-9d4d6c7773c1"
+    language-code="en"
+    chat-icon="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSeQ1ZcLIXgC7QfV095MquOTNv2H-STfmdqWUeAO6zr_579c-w6BOGIQcKJDGMwgXT4FIE&usqp=CAU"
+    wait-open="true"
+    ></df-messenger>
+
+  <!-- Vendor JS Files -->
+  <!-- Vendor JS Files -->
+  <script src="	https://cdnjs.cloudflare.com/ajax/libs/aos/3.0.0-beta.6/aos.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/gh/mcstudios/glightbox/dist/js/glightbox.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.isotope/3.0.6/isotope.pkgd.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/waypoints/3.0.0/noframework.waypoints.js"></script>
+
+
+  
+
+  <script src="{{ url_for('static', filename='vendor/aos/aos.js') }}"></script>
+  <script src="{{ url_for('static', filename='vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
+  <script src="{{ url_for('static', filename='vendor/glightbox/js/glightbox.min.js') }}"></script>
+  <script src="{{ url_for('static', filename='vendor/isotope-layout/isotope.pkgd.min.js') }}"></script>
+  <script src="{{ url_for('static', filename='vendor/swiper/swiper-bundle.min.js') }}"></script>
+  <script src="{{ url_for('static', filename='vendor/waypoints/noframework.waypoints.js') }}"></script>
+  <script src="{{ url_for('static', filename='vendor/php-email-form/validate.js') }}"></script>
+
+
+  <!-- Template Main JS File -->
+  <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+  <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+
+</body>
+
+</html>

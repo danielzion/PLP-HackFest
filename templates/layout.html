@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %} {% endblock %}</title>
+    <meta content="" name="description">
+    <meta content="" name="keywords">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Jost:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+
+
+  <link href="{{ url_for('static', filename='vendor/aos/aos.css') }}" rel="stylesheet">
+  <link href="{{ url_for('static', filename='vendor/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
+  <link href="{{ url_for('static', filename='vendor/bootstrap-icons/bootstrap-icons.css') }}" rel="stylesheet">
+  <link href="{{ url_for('static', filename='vendor/boxicons/css/boxicons.min.css') }}" rel="stylesheet">
+  <link href="{{ url_for('static', filename='vendor/glightbox/css/glightbox.min.css') }}" rel="stylesheet">
+  <link href="{{ url_for('static', filename='vendor/remixicon/remixicon.css') }}" rel="stylesheet">
+  <link href="{{ url_for('static', filename='vendor/swiper/swiper-bundle.min.css') }}" rel="stylesheet">
+
+
+
+  <!-- Template Main CSS File -->
+
+  <link href="{{ url_for('static', filename='css/style.css') }}" rel="stylesheet">
+  {% block styles %} 
+
+  {% endblock %}
+</head>
+
+<body>
+
+  {% block header %} 
+  
+  {% endblock %}
+    
+
+  {% block content %} 
+  
+  {% endblock %}
+
+
+
+  {% block footer %} 
+  
+  {% endblock %}
+
+
+  <div class="container footer-bottom clearfix">
+    <div class="copyright">
+      &copy; Copyright <strong><span>AgriWeather</span></strong>. All Rights Reserved
+    </div>
+    <div class="credits">
+      Designed by Olaniyan Daniel
+    </div>
+  </div>
+</footer><!-- End Footer -->
+
+<script src="https://www.gstatic.com/dialogflow-console/fast/messenger/bootstrap.js?v=1"></script>
+<df-messenger
+  intent="WELCOME"
+  chat-title="Climabot"
+  agent-id="e01adc56-b191-40af-bfb2-9d4d6c7773c1"
+  language-code="en"
+  chat-icon="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSeQ1ZcLIXgC7QfV095MquOTNv2H-STfmdqWUeAO6zr_579c-w6BOGIQcKJDGMwgXT4FIE&usqp=CAU"
+  wait-open="true"
+  ></df-messenger>
+
+<div id="preloader"></div>
+<a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+
+<!-- Vendor JS Files -->
+<script src="	https://cdnjs.cloudflare.com/ajax/libs/aos/3.0.0-beta.6/aos.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/mcstudios/glightbox/dist/js/glightbox.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.isotope/3.0.6/isotope.pkgd.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/waypoints/3.0.0/noframework.waypoints.js"></script>
+
+<script src="static/vendor/aos/aos.js"></script>
+<script src="static/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="static/vendor/glightbox/js/glightbox.min.js"></script>
+<script src="static/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+<script src="static/vendor/swiper/swiper-bundle.min.js"></script>
+<script src="static/vendor/waypoints/noframework.waypoints.js"></script>
+<script src="static/vendor/php-email-form/validate.js"></script>
+
+
+
+<!-- Template Main JS File -->
+<script src="static/js/main.js"></script>
+
+</body>
+
+</html>
